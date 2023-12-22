@@ -4,22 +4,20 @@ import $ from 'jquery';
 
 function Filter(props: any) {
 
-
+    
     var list = [
         <option key={null} value="all">All</option>];
 
+    
+    // adds community groups found in JSON response to the dropdown list
     props.filter_list.forEach((filter_option: string, index: number) => {
         list.push(
             <option key={index} value={filter_option.split(" ").join("-")}>{filter_option}</option>
         );
     });
 
-    // $(document).ready(function() {
-    //     $("#filter_select").change(function() {
-    //       console.log($("#filter_select").find(":selected").val());
-    //     });
-    //   });
-
+ 
+    // triggers whenever someone changes the dropdown list selector and hides all communities that don't match user's choice
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         if (event.target.value.localeCompare("all") != 0){
                 

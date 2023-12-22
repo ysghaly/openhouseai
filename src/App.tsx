@@ -22,7 +22,7 @@ function App() {
     let home_url = process.env.REACT_APP_HOME_URL as string;
 
 
-
+    // API fetch calls to retrive JSON object containing data for communities and homes
     fetch(community_url, {
       method: 'GET',
       redirect: 'follow',
@@ -61,13 +61,14 @@ let community_names: string[] = [];
 createCommunityPages();
 
 
-
+// Gets and saves a list of the communities retrieved in the JSON response
 communities.forEach((community: any, index: number) => {
   community_names.push(community.name);
   community_names.sort();
 });
 
 
+// Dynamically creates routes for the React Router, using names of Communities retrieved from JSON response
 function createCommunityPages(){
   
 

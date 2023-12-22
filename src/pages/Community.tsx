@@ -10,6 +10,7 @@ function Community(props: any) {
   
   var homes = props.homes;
 
+  // Extracts data from JSON response and arranges it into HTML elements.
 
   function getProperties(){
   

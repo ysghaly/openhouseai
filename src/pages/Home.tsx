@@ -16,6 +16,7 @@ function Home(props: any) {
 
   getCommunityInfo();
 
+  // Extracts data from JSON response and arranges it into HTML elements.
   function getCommunityInfo(){
     
 
@@ -43,6 +44,8 @@ function Home(props: any) {
     sort_communities(community_list);
   }
 
+  // Alphabetically sorts the array of HTML elements so that it would render in order 
+
   function sort_communities(arr: any[]){
     let result: any[] = arr.sort(function(first, second){
       return first.props.id.localeCompare(second.props.id);
@@ -52,7 +55,7 @@ function Home(props: any) {
     return result;
   }
 
-
+  // Calculates the average price of a community by matching properties' community ID, adding up the total and dividing by number of properties
   function getAveragePrice(id: string): number{
     var avg_price = 0;
     var total_price = 0;

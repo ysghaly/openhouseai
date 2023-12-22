@@ -19,6 +19,8 @@ A:  I would spend more time playing around with the visual design, to make it lo
 TypeScript, and haven't really worked on both simultaneously. That definitely slowed me down, and if I had more time I would try to improve my code, and try make it more cohesive and professional.  
     Finally, if I could have taken my time from the start, I would have been better about setting up proper unit testing for easier
 devlopment and more through error checking. As it is, I tried to provide as much data validation and handling as I could, but it's no substitute for a proper framework of tests and checks.
+    Almost forgot to add some documentation. If I had more time, would have loved to also clean up my code and add more documentation
+to it, instead of just the basic stuff I managed.
 
 Overall, this was fun. A little nerve wracking, but I dove headfirst into the challenge and enjoyed stretching those mental muscles. Almost missed lunch and definitely missed dinner while I was caught up in the coding ;). 
 
