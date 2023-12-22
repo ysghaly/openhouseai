@@ -16,8 +16,12 @@ function App() {
   const [homes, setHomes] = useState([{id:"", communityId: "", price: 0, area: 0, type: ""}]);
   useEffect(() => {
 
-       
-    fetch("https://corsproxy.io/?https://storage.googleapis.com/openhouse-ai-fe-coding-test/communities.json", {
+    const community_url =  process.env.REACT_APP_COMMUNITY_URL as string;
+    let home_url = process.env.REACT_APP_HOME_URL as string;
+
+
+
+    fetch(community_url, {
       method: 'GET',
       redirect: 'follow',
       headers: {
@@ -31,7 +35,7 @@ function App() {
       .then(result => setCommunities(result))
       .catch(error => console.log('error', error));
        
-    fetch("https://corsproxy.io/?https://storage.googleapis.com/openhouse-ai-fe-coding-test/homes.json", {
+    fetch(home_url, {
       method: 'GET',
       redirect: 'follow',
       headers: {
@@ -67,7 +71,7 @@ function createCommunityPages(){
 
   communities.forEach((community: any, index: number) => {
     router_list.push(
-      <Route path={"community/"+community.name} element={<Community community_data={communities[index]} homes={homes} community_names={community_names}/>} />
+      <Route key={index} path={"community/"+community.name} element={<Community community_data={communities[index]} homes={homes} community_names={community_names}/>} />
     );
   });
 }
