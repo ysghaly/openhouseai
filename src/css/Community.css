@@ -1,0 +1,33 @@
+
+
+.community {
+    text-align: center;
+
+}
+
+
+.property{
+    margin-bottom: 50px;
+}
+
+.community-title{
+    margin-bottom: 20px;
+}
+
+.community > .main-body{
+    padding-top: 0px;
+    display: flex;
+}
+
+.main-left{
+    width: 60%;
+}
+
+.main-right{
+    width: 40%;
+    text-align: left;
+}
+
+.property{
+    margin-left: 20px;
+}
