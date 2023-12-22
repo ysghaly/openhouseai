@@ -8,7 +8,7 @@ import stockPhoto from './assets/AdobeStock_642180565_Preview.jpeg'
 function App() {
 
 
-  const [communities, setCommunities] = useState([{id:"", name: "", imgUrl: "", group: ""}]);
+  const [communities, setCommunities] = useState( [ {id:"", name: "", imgUrl: "", group: ""}, {id:"", name: "", imgUrl: "", group: ""} ] );
   const [homes, setHomes] = useState([{id:"", communityId: "", price: 0, area: 0, type: ""}]);
   useEffect(() => {
 
@@ -53,9 +53,10 @@ function App() {
 
   function getCommunityInfo(){
     
+
     communities.forEach((community, index) => {
       community_names.push(
-        <div key={index} className='community'>
+        <div key={index} className='community' id={community.name}>
           <h2 className='community-name'>{community.name}</h2> 
           {(getAveragePrice(community.id) > 0) && <h3 className='community-price'>Average Price: $ {getAveragePrice(community.id).toLocaleString()}</h3>}
           {! (getAveragePrice(community.id) > 0) && <h3 className='community-price'>Average Price: N/A</h3>}
@@ -69,6 +70,18 @@ function App() {
         </div>
       );
     });
+    
+    sort_communities(community_names);
+  }
+
+  function sort_communities(arr: any[]){
+    let result: any[] = arr.sort(function(first, second){
+      console.log(first);
+      return first.props.id.localeCompare(second.props.id);
+    });
+
+
+    return result;
   }
 
   function swapImage(image: HTMLImageElement){
