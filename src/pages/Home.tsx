@@ -21,7 +21,7 @@ function Home(props: any) {
 
     communities.forEach((community: {id:"", name: "", imgUrl: "", group: ""}, index: number) => {
       community_list.push(
-        <div key={index} className={'community ' + community.group.split(" ").join("-")} id={community.name.split(" ").join("-")}>
+        <div key={index} className={'community ' + community.group.split(" ").join("-")} id={community.name}>
           <h2 className='community-name'>{community.name}</h2> 
           {(getAveragePrice(community.id) > 0) && <h3 className='community-price'>Average Price: $ {getAveragePrice(community.id).toLocaleString()}</h3>}
           {(! (getAveragePrice(community.id) > 0)) && <h3 className='community-price'>Average Price: No Properties found</h3>}
