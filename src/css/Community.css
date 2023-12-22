@@ -31,3 +31,21 @@
 .property{
     margin-left: 20px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .community > .main-body{
+        display: block;
+    }
+
+        
+    .main-left{
+        width: 100%;
+    }
+
+    .main-right{
+        width: fit-content;
+        margin: auto;
+        display: block;
+    }
+}

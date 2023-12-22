@@ -9,14 +9,17 @@ function Header(props: any) {
   return (
     <header>
         
-        <ul>
+        <ul className='desktop-only'>
             <li><a style={{color: "black"}} href='/'><strong>Home</strong></a></li>
           {props.community_names.map((community: any) => (
           <li><a href={"/#"+community}>{community}</a></li>
         ))}
         </ul>
+          
+        <h1 className='mobile-only'><a style={{color: "black"}} href='/'>Home</a></h1>
+          
   
-      </header>
+    </header>
   );
 }
 

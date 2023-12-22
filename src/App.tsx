@@ -14,6 +14,8 @@ function App() {
   
   const [communities, setCommunities] = useState( [ {id:"", name: "", imgUrl: "", group: ""}, {id:"", name: "", imgUrl: "", group: ""} ] );
   const [homes, setHomes] = useState([{id:"", communityId: "", price: 0, area: 0, type: ""}]);
+  const [commAPIFail, setcommAPIFail] = useState(false);
+  const [homeAPIFail, sethomeAPIFail] = useState(false);
   useEffect(() => {
 
     const community_url =  process.env.REACT_APP_COMMUNITY_URL as string;
@@ -33,7 +35,7 @@ function App() {
     }) 
       .then(response => response.json())
       .then(result => setCommunities(result))
-      .catch(error => console.log('error', error));
+      .catch(error => setcommAPIFail(true));
        
     fetch(home_url, {
       method: 'GET',
@@ -47,7 +49,7 @@ function App() {
     }) 
       .then(response => response.json())
       .then(result => setHomes(result))
-      .catch(error => console.log('error', error));
+      .catch(error => sethomeAPIFail(true));
 
 },[])
 
@@ -71,7 +73,7 @@ function createCommunityPages(){
 
   communities.forEach((community: any, index: number) => {
     router_list.push(
-      <Route key={index} path={"community/"+community.name} element={<Community community_data={communities[index]} homes={homes} community_names={community_names}/>} />
+      <Route key={index} path={"community/"+community.name} element={<Community community_data={communities[index]} homes={homes} community_names={community_names} apiFail={homeAPIFail}/>} />
     );
   });
 }
@@ -79,7 +81,7 @@ function createCommunityPages(){
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<Home communities={communities} homes={homes} community_names={community_names} />} />
+          <Route index element={<Home communities={communities} homes={homes} community_names={community_names} apiFail={commAPIFail} />} />
           {router_list}
         </Route>
       </Routes>

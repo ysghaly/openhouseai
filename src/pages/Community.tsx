@@ -59,8 +59,9 @@ function Community(props: any) {
           <h2>Properties:</h2>
 
           <div className='property'>
-            {(community_homes.length > 0)  && community_homes}
-            {(community_homes.length == 0)  && <p>No Properties</p>}
+            {((community_homes.length > 0) && props.apiFail == false)  && community_homes}
+            {((community_homes.length == 0) && props.apiFail == false)  && <p>No Properties</p>}
+            {(props.apiFail == true)  && <p>API call failed. Could not retrieve property info.</p>}
           </div>
 
         </div>

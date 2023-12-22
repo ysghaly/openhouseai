@@ -23,7 +23,7 @@ function Home(props: any) {
         <div key={index} className='community' id={community.name}>
           <h2 className='community-name'>{community.name}</h2> 
           {(getAveragePrice(community.id) > 0) && <h3 className='community-price'>Average Price: $ {getAveragePrice(community.id).toLocaleString()}</h3>}
-          {! (getAveragePrice(community.id) > 0) && <h3 className='community-price'>Average Price: N/A</h3>}
+          {(! (getAveragePrice(community.id) > 0)) && <h3 className='community-price'>Average Price: No Properties found</h3>}
           <p><a href={"/community/"+community.name}>See Details</a></p>
           <img alt="No Photo" className='community-image' src={community.imgUrl} 
             onError={
@@ -69,13 +69,20 @@ function Home(props: any) {
   }
 
 
+  const error_message = <h1>API call failed</h1>;
+
+
   return (
     <div className="home">
       <Header community_names={props.community_names} />
       <div className='main-body'>
-        
-        <h1>Community List</h1>
-        { community_list }
+        { (props.apiFail == false) &&
+          <h1>Community List</h1>
+        }
+        { (props.apiFail == false) &&
+          community_list 
+        }
+        { (props.apiFail == true) && error_message }
       </div>
     </div>
   );
