@@ -12,7 +12,7 @@ function App() {
 
 
   
-  const [communities, setCommunities] = useState( [ {id:"", name: "", imgUrl: "", group: ""}, {id:"", name: "", imgUrl: "", group: ""} ] );
+  const [communities, setCommunities] = useState( [ {id:"", name: "", imgUrl: "", group: ""} ] );
   const [homes, setHomes] = useState([{id:"", communityId: "", price: 0, area: 0, type: ""}]);
   const [commAPIFail, setcommAPIFail] = useState(false);
   const [homeAPIFail, sethomeAPIFail] = useState(false);

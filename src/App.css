@@ -2,13 +2,15 @@
   text-align: center;
 }
 
-
+body{
+  background: #008080b0;
+}
 
 header{
   position: fixed;
   text-align: center;
   width: 100vw;
-  background-color: grey;
+  background-color: #464646;
   min-height: 50px;
   top: 0;
 }

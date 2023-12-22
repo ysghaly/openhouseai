@@ -4,13 +4,6 @@
   
   
   
-  header{
-    position: fixed;
-    text-align: center;
-    background-color: grey;
-    min-height: 50px;
-    top: 0;
-  }
   
 
   header > ul {
